@@ -1,0 +1,8 @@
+const data = [
+    { name: "nepolion", id: "858", details: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, rerum!", position: "abc", img: "https://media.gcflearnfree.org/content/5e31ca08bc7eff08e4063776_01_29_2020/ProgrammingIllustration.png" },
+    { name: "nepolion", id: "838", details: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, rerum!", position: "abc", img: "https://media.gcflearnfree.org/content/5e31ca08bc7eff08e4063776_01_29_2020/ProgrammingIllustration.png" },
+    { name: "nepolion", id: "858", details: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, rerum!", position: "abc", img: "https://media.gcflearnfree.org/content/5e31ca08bc7eff08e4063776_01_29_2020/ProgrammingIllustration.png" },
+    { name: "nepolion", id: "858", details: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, rerum!", position: "abc", img: "https://media.gcflearnfree.org/content/5e31ca08bc7eff08e4063776_01_29_2020/ProgrammingIllustration.png" },
+    { name: "nepolion", id: "848", details: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, rerum!", position: "abc", img: "https://media.gcflearnfree.org/content/5e31ca08bc7eff08e4063776_01_29_2020/ProgrammingIllustration.png" },
+    { name: "nepolion", id: "818", details: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, rerum!", position: "abc", img: "https://media.gcflearnfree.org/content/5e31ca08bc7eff08e4063776_01_29_2020/ProgrammingIllustration.png" },
+]

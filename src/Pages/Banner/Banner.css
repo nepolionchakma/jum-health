@@ -1,0 +1,17 @@
+.slide-img{
+    width: 100%;
+    z-index: 2;
+    position: relative;
+}
+.slide-shape {
+    width: 235px;
+    height: 235px;
+    background: radial-gradient(#ffffff 2px, transparent 0px);
+    z-index: 1;
+    position: absolute;
+    top: 100px;
+    left: 20px;
+    background-size: 20px 20px;
+    opacity: 0.5;
+    transform: rotate(-10deg);
+}
