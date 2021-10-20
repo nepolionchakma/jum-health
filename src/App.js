@@ -8,38 +8,47 @@ import Services from './Pages/Services/Services';
 import Error from './Pages/Error/Error';
 import Login from './Pages/Login/Login';
 import SignUp from './Pages/SignUp/SignUp';
+import AuthProvider from './context/AuthProvider';
+import Details from './Pages/Details/Details';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
+
+
 
 
 function App() {
   return (
     <div className="App">
-
-      <Router>
-        <Header></Header>
-        <Switch>
-          <Route exact path="/">
-            <Home></Home>
-          </Route>
-          <Route path="/home">
-            <Home></Home>
-          </Route>
-          <Route path="/services">
-            <Services></Services>
-          </Route>
-          <Route path="/login">
-            <Login></Login>
-          </Route>
-          <Route path="/signup">
-            <SignUp></SignUp>
-          </Route>
-          <Route path=""></Route>
-          <Route path=""></Route>
-          <Route path="*">
-            <Error></Error>
-          </Route>
-        </Switch>
-        <Footer></Footer>
-      </Router>
+      <AuthProvider>
+        <Router>
+          <Header></Header>
+          <Switch>
+            <Route exact path="/">
+              <Home></Home>
+            </Route>
+            <Route path="/home">
+              <Home></Home>
+            </Route>
+            <PrivateRoute path="/services">
+              <Services></Services>
+            </PrivateRoute>
+            <Route path="/details/:serviceId">
+              <Details></Details>
+            </Route>
+            <Route path="/login">
+              <Login></Login>
+            </Route>
+            <Route path="/signup">
+              <SignUp></SignUp>
+            </Route>
+            <Route path=""></Route>
+            <Route path=""></Route>
+            <Route path="*">
+              <Error></Error>
+            </Route>
+          </Switch>
+          <Footer></Footer>
+        </Router>
+      </AuthProvider>
     </div>
   );
 }

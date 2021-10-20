@@ -1,17 +1,16 @@
 
 import useAuth from '../../hooks/useAuth';
 import Service from '../Service/Service';
-import "./Services.css"
 
 
-const Services = () => {
-
+const HomeServices = () => {
     // Load Fake Data from public folder
     const { services } = useAuth();
+    const fakeData = services.slice(0, 6);
     return (
         <div>
 
-            {services.length === 0 ?
+            {fakeData.length === 0 ?
                 <div className="d-flex justify-content-center py-5">
                     <div className="spinner-border  text-warning" role="status">
                         <span className="sr-only">Loading...</span>
@@ -22,7 +21,7 @@ const Services = () => {
                     {/* Map */}
 
                     {
-                        services.map(service =>
+                        fakeData.map(service =>
                             <Service
                                 key={service.id}
                                 service={service}
@@ -36,4 +35,4 @@ const Services = () => {
     );
 };
 
-export default Services;
+export default HomeServices;

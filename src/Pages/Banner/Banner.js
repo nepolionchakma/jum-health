@@ -13,35 +13,44 @@ const Banner = () => {
                             <div className="slide-shape"></div>
                         </div>
                         <div className="col-lg-6">
-                            <h3>First slide label</h3>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                            <h5>Our Introduction</h5>
+                            <h3>Book Online For Doctor's Appointment</h3>
+                            <p>Aenean facilisis sodales est neciMorbi vitapurus on Est facilisisro convallis commodo velante, tiam ltricies lputate.Aenean facilisis sodales est neciMorbi vitapurus on Est facilisisro convallis commodo velante, tiam ltricies lputate.</p>
+                            <button className="btn btn-danger">Get Start</button>
+                        </div>
+                    </div>
+                </Carousel.Item>
+
+                <Carousel.Item>
+                    <div className="row bg-secondary p-5  d-flex align-items-center">
+
+                        <div className="col-lg-6">
+                            <h5>Our Introduction</h5>
+                            <h3>Book Online For Doctor's Appointment</h3>
+                            <p>Aenean facilisis sodales est neciMorbi vitapurus on Est facilisisro convallis commodo velante, tiam ltricies lputate.Aenean facilisis sodales est neciMorbi vitapurus on Est facilisisro convallis commodo velante, tiam ltricies lputate.</p>
+                            <button className="btn btn-danger">Get Start</button>
+                        </div>
+                        <div className="col-lg-6">
+                            <img className="slide-img" src="http://kamleshyadav.com/healthcare/healthcare/assets/images/001.png" alt="" />
+                            <div className="slide-shape"></div>
                         </div>
                     </div>
                 </Carousel.Item>
                 <Carousel.Item>
                     <div className="row bg-secondary p-5  d-flex align-items-center">
                         <div className="col-lg-6">
-                            <img className="slide-img" src="https://image.pngaaa.com/494/5494-middle.png" alt="" />
+                            <img className="slide-img" src="http://kamleshyadav.com/healthcare/healthcare/assets/images/001.png" alt="" />
                             <div className="slide-shape"></div>
                         </div>
                         <div className="col-lg-6">
-                            <h3>First slide label</h3>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                            <h5>Our Introduction</h5>
+                            <h3>Book Online For Doctor's Appointment</h3>
+                            <p>Aenean facilisis sodales est neciMorbi vitapurus on Est facilisisro convallis commodo velante, tiam ltricies lputate.Aenean facilisis sodales est neciMorbi vitapurus on Est facilisisro convallis commodo velante, tiam ltricies lputate.</p>
+                            <button className="btn btn-danger">Get Start</button>
                         </div>
                     </div>
                 </Carousel.Item>
-                <Carousel.Item>
-                    <div className="row bg-secondary p-5  d-flex align-items-center">
-                        <div className="col-lg-6">
-                            <img className="slide-img" src="https://e7.pngegg.com/pngimages/467/913/png-clipart-lima-memorial-health-system-physician-medical-intern-medicine-dentist-medical-team-service-public-relations.png" alt="" />
-                            <div className="slide-shape"></div>
-                        </div>
-                        <div className="col-lg-6">
-                            <h3>First slide label</h3>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                        </div>
-                    </div>
-                </Carousel.Item>
+
 
             </Carousel>
         </div>

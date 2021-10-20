@@ -1,0 +1,17 @@
+import { useEffect, useState } from "react";
+
+
+const FakeDataProvider = () => {
+
+    const [services, setService] = useState([]);
+    useEffect(() => {
+        fetch("./fakeData.JSON")
+            .then(res => res.json())
+            .then(data => setService(data))
+    }, [])
+
+
+    return services;
+};
+
+export default FakeDataProvider;

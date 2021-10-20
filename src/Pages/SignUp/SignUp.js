@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 
 const SignUp = () => {
+    const { handleGoogleSignIn, handleGithubSignIn, handleSignOut, user } = useAuth();
     return (
         <div className="py-5">
             <h4>Please Sign Up</h4>
@@ -18,9 +20,23 @@ const SignUp = () => {
             <br />
             <Link to="/login">Already SignUp?</Link>
             <hr />
-            <button className="btn btn-danger">Google</button>
-            <button className="btn btn-danger m-4">Facebook</button>
-            <button className="btn btn-danger">Github</button>
+            <div>
+                {!user?.name ?
+                    <div>
+                        <button onClick={handleGoogleSignIn} className="btn btn-danger">Google</button>
+                        <button onClick={handleGithubSignIn} className="btn btn-danger ms-3">Github</button>
+                    </div> :
+                    <button onClick={handleSignOut} className="btn btn-danger ms-3">SignOut</button>
+                }
+            </div>
+            <div>
+                {
+                    user?.name && <div>
+                        <h4>Welcome {user.name}</h4>
+                        <img src={user.photo} alt="" />
+                    </div>
+                }
+            </div>
         </div>
     );
 };
