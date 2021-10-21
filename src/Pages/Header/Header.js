@@ -2,14 +2,13 @@
 import "./Header.css"
 import { Container, Nav, Navbar } from 'react-bootstrap';
 
+import { HashLink } from 'react-router-hash-link';
 // get our font awesome imports
 import { faHeartbeat } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
-// Login();
-// console.log(Login)
 
 const Header = () => {
 
@@ -17,15 +16,21 @@ const Header = () => {
     const { user, handleSignOut } = useAuth();
 
     return (
-        <div className="header-container">
-            <Navbar expand="lg" bg="dark" variant="dark">
-                <Container>
-                    <Navbar.Brand className=""><Link to="/" className="fs-2 text-danger text-uppercase"><FontAwesomeIcon className="fs-1" icon={faHeartbeat} /> <span className="fw-bold ">Jum </span>HealthCare</Link></Navbar.Brand>
+
+        <>
+
+            <Navbar expand="lg" bg="dark" variant="dark" sticky="top">
+                <Container className="header-container py-2">
+                    <Navbar.Brand className=""><Link to="/home" className="fs-2 text-danger text-uppercase"><FontAwesomeIcon className="fs-1" icon={faHeartbeat} /> <span className="fw-bold ">Jum </span>HealthCare</Link></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mx-auto">
-                            <Link to="/services">Services</Link>
-                            <Link to="/pricing">Pricing</Link>
+                            <Nav.Link as={HashLink} to="/home#home">Home</Nav.Link>
+                            <Nav.Link as={HashLink} to="/home#doctors">Doctors</Nav.Link>
+                            <Nav.Link as={HashLink} to="/services">Services</Nav.Link>
+                            <Nav.Link as={HashLink} to="/blogs">Blogs</Nav.Link>
+                            <Nav.Link as={HashLink} to="/home#about">About</Nav.Link>
+                            <Nav.Link as={HashLink} to="/contactus">Contact</Nav.Link>
                         </Nav>
                         <Nav>
                             {!user?.name ?
@@ -34,12 +39,15 @@ const Header = () => {
                                     <Link className="px-1 jum-text" to="/signup">Signup</Link>
                                 </div> :
                                 <div>
-                                    <button onClick={handleSignOut} className="btn btn-danger ms-3">SignOut</button>
-                                    <img style={{
-                                        width: '30px',
-                                        borderRadius: '50%',
-                                        margin: '0px 10px'
-                                    }} src={user.photo} alt={user.name} />
+                                    <span className="text-white">Welcome,{user.name}</span>
+                                    <img
+                                        style={{
+                                            width: '30px',
+                                            borderRadius: '50%',
+                                            margin: '0px 5px'
+                                        }}
+                                        src={user.photo} alt="" />
+                                    <button onClick={handleSignOut} className="btn btn-danger p-1">SignOut</button>
                                 </div>
                             }
 
@@ -47,7 +55,7 @@ const Header = () => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-        </div>
+        </>
     );
 };
 

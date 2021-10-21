@@ -1,0 +1,12 @@
+.contact-container {
+    text-decoration: none;
+    /* width: 800px; */
+    background: url(https://vayana.com/wp-content/uploads/2018/05/form-background.jpg);
+    /* background-repeat: no-repeat; */
+    background-size: cover;
+    background-attachment: fixed;
+}
+.contact-container ul li{
+    list-style: none;
+    padding: 10px 0;
+}

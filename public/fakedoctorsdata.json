@@ -1,0 +1,44 @@
+[
+    {
+        "name": "Dr. Johnson",
+        "category": "Cardiologist",
+        "id": "1",
+        "details": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, rerum!",
+        "img": "http://kamleshyadav.com/healthcare/healthcare/assets/images/team1.jpg"
+    },
+    {
+        "name": "Dr. Nancy",
+        "category": "Surgeon",
+        "id": "2",
+        "details": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, rerum!",
+        "img": "http://kamleshyadav.com/healthcare/healthcare/assets/images/team2.jpg"
+    },
+    {
+        "name": "Dr. Jorz Maxwell",
+        "category": "Dentist",
+        "id": "3",
+        "details": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, rerum!",
+        "img": "http://kamleshyadav.com/healthcare/healthcare/assets/images/team3.jpg"
+    },
+    {
+        "name": "Dr. Nilla Roy",
+        "category": "Gynecologist",
+        "id": "4",
+        "details": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, rerum!",
+        "img": "http://kamleshyadav.com/healthcare/healthcare/assets/images/team4.jpg"
+    },
+    {
+        "name": "Dr. Adam Jani",
+        "category": "Pediatricians",
+        "id": "5",
+        "details": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, rerum!",
+        "img": "http://kamleshyadav.com/healthcare/healthcare/assets/images/team5.jpg"
+    },
+    {
+        "name": "Dr. Nikki Bella",
+        "category": "Gynecologist",
+        "id": "6",
+        "details": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, rerum!",
+        "img": "http://kamleshyadav.com/healthcare/healthcare/assets/images/team6.jpg"
+    }
+]

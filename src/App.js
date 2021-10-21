@@ -11,6 +11,9 @@ import SignUp from './Pages/SignUp/SignUp';
 import AuthProvider from './context/AuthProvider';
 import Details from './Pages/Details/Details';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
+import AboutUs from './Pages/AboutUs/AboutUs';
+import ContactUs from './Pages/ContactUs/ContactUs';
+import Blogs from './Pages/Blogs/Blogs';
 
 
 
@@ -28,20 +31,27 @@ function App() {
             <Route path="/home">
               <Home></Home>
             </Route>
-            <PrivateRoute path="/services">
-              <Services></Services>
-            </PrivateRoute>
-            <Route path="/details/:serviceId">
-              <Details></Details>
-            </Route>
             <Route path="/login">
               <Login></Login>
             </Route>
             <Route path="/signup">
               <SignUp></SignUp>
             </Route>
-            <Route path=""></Route>
-            <Route path=""></Route>
+            <PrivateRoute path="/services">
+              <Services></Services>
+            </PrivateRoute>
+            <Route path="/details/:serviceId">
+              <Details></Details>
+            </Route>
+            <Route path="/aboutus">
+              <AboutUs></AboutUs>
+            </Route>
+            <Route path="/contactus">
+              <ContactUs></ContactUs>
+            </Route>
+            <Route path="/blogs">
+              <Blogs></Blogs>
+            </Route>
             <Route path="*">
               <Error></Error>
             </Route>

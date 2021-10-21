@@ -13,7 +13,7 @@ const Footer = () => {
                 <div className="row p-5 border-primary border-top border-bottom">
                     <div className="col-lg-4">
                         <h4>Office Address</h4>
-                        <address>Evanto HQ 24 Fifth st., Los Angeles, USA</address>
+                        <address>20 Hatazari, Chittagong, Bangladesh</address>
                     </div>
                     <div className="col-lg-4 border-primary border-start border-end">
                         <h4>Talk To Expert</h4>

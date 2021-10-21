@@ -8,16 +8,16 @@ const HomeServices = () => {
     const { services } = useAuth();
     const fakeData = services.slice(0, 6);
     return (
-        <div>
+        <div id="services">
 
             {fakeData.length === 0 ?
-                <div className="d-flex justify-content-center py-5">
+                <div className="d-flex justify-content-center py-4">
                     <div className="spinner-border  text-warning" role="status">
                         <span className="sr-only">Loading...</span>
                     </div>
                 </div> :
-                <div className="services-container row p-4 m-0">
-
+                <div className="services-container row p-5 m-0">
+                    <h2 className="fw-bold">Our Services</h2>
                     {/* Map */}
 
                     {
