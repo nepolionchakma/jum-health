@@ -5,7 +5,7 @@ const ContactUs = () => {
     return (
         <div className="contact-container row m-0 py-5 mx-auto">
             <div className="col-3 col-md-1 col-sm-1"></div>
-            <div className="col-3 col-md-5 col-sm-12 col-12 text-white mt-5">
+            <div className="col-3 col-md-12 col-sm-12 col-12 text-white mt-5">
                 <h4>Follow Us On</h4>
                 <p>
                     <a className="px-3" href="/home"><i className="fab fa-twitter"> </i></a>
@@ -18,7 +18,7 @@ const ContactUs = () => {
                     <p>20 Hatazari, Chittagong, Bangladesh</p>
                 </address>
             </div>
-            <div className="col-3 col-md-5 col-sm-12 col-12 py-3">
+            <div className="col-3 col-md-12 col-sm-12 col-12 py-3">
                 <h3 className="fw-bold text-success p-5 text-danger">Contact Us</h3>
                 <div className="row mb-3">
                     <label htmlFor="inputEmail3" className="col-sm-2 col-form-label text-white fw-bold">Name</label>

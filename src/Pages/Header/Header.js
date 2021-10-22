@@ -14,7 +14,6 @@ const Header = () => {
 
     // destructuring
     const { user, handleSignOut } = useAuth();
-    console.log(user);
 
     // const userName = user.name.slice(0, 1);
 
