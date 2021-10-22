@@ -3,42 +3,42 @@
         "name": "Dr. Johnson",
         "category": "Cardiologist",
         "id": "1",
-        "details": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, rerum!",
+        "details": "The field includes medical diagnosis and treatment of congenital heart defects, coronary artery disease, heart failure, valvular heart disease.",
         "img": "http://kamleshyadav.com/healthcare/healthcare/assets/images/team1.jpg"
     },
     {
         "name": "Dr. Nancy",
         "category": "Surgeon",
         "id": "2",
-        "details": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, rerum!",
+        "details": "A surgeon is a doctor who specializes in evaluating and treating conditions that may require surgery, or physically changing the human body. Surgeries can be done to diagnose or treat disease or injury.",
         "img": "http://kamleshyadav.com/healthcare/healthcare/assets/images/team2.jpg"
     },
     {
         "name": "Dr. Jorz Maxwell",
         "category": "Dentist",
         "id": "3",
-        "details": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, rerum!",
+        "details": "A dentist, also known as a dental surgeon, is a medical professional who specializes in dentistry, the diagnosis, prevention, and treatment of diseases .",
         "img": "http://kamleshyadav.com/healthcare/healthcare/assets/images/team3.jpg"
     },
     {
         "name": "Dr. Nilla Roy",
         "category": "Gynecologist",
         "id": "4",
-        "details": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, rerum!",
+        "details": "Gynaecologists typically do a bimanual examination (one hand on the abdomen and one or two fingers in the vagina) to palpate the cervix, uterus, ovaries .",
         "img": "http://kamleshyadav.com/healthcare/healthcare/assets/images/team4.jpg"
     },
     {
         "name": "Dr. Adam Jani",
         "category": "Pediatricians",
         "id": "5",
-        "details": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, rerum!",
+        "details": "Paediatrics is the branch of medicine that involves the medical care of infants, children, and adolescents. The American Academy of Pediatrics recommends .",
         "img": "http://kamleshyadav.com/healthcare/healthcare/assets/images/team5.jpg"
     },
     {
         "name": "Dr. Nikki Bella",
         "category": "Gynecologist",
         "id": "6",
-        "details": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, rerum!",
+        "details": "Gynaecologists typically do a bimanual examination (one hand on the abdomen and one or two fingers in the vagina) to palpate the cervix, uterus, ovaries .",
         "img": "http://kamleshyadav.com/healthcare/healthcare/assets/images/team6.jpg"
     }
 ]

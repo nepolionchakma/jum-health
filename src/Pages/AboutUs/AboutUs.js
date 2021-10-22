@@ -18,19 +18,19 @@ const AboutUs = () => {
                         <Accordion.Item eventKey="0">
                             <Accordion.Header><h5 className="fw-bold text-danger">Work</h5></Accordion.Header>
                             <Accordion.Body>
-                                Aenean facilisis sodales est neciMorbi vitapurus on Est facilisisro convallis commodo velante, tiam ltricies lputate.Aenean facilisis sodales est neciMorbi vitapurus on Est facilisisro convallis commodo velante, tiam ltricies lputate.
+                                A medical assistant is a person who completes administrative tasks in a doctor’s office or hospital. Medical assistant jobs are growing much faster than most professions in America, with an estimated increase of 31% in available jobs between 2010 and 2020.
                             </Accordion.Body>
                         </Accordion.Item>
                         <Accordion.Item eventKey="1">
                             <Accordion.Header><h5 className="fw-bold text-danger">Mission</h5></Accordion.Header>
                             <Accordion.Body>
-                                Aenean facilisis sodales est neciMorbi vitapurus on Est facilisisro convallis commodo velante, tiam ltricies lputate.Aenean facilisis sodales est neciMorbi vitapurus on Est facilisisro convallis commodo velante, tiam ltricies lputate.
+                                JUM Health care is delivered by health professionals and allied health fields. Medicine, dentistry, pharmacy, midwifery, nursing, optometry, audiology, psychology, occupational therapy, physical therapy, athletic training, and other health professions are all part of health care. It includes work done in providing primary care, secondary care, and tertiary care, as well as in public health.
                             </Accordion.Body>
                         </Accordion.Item>
                         <Accordion.Item eventKey="2">
                             <Accordion.Header><h5 className="fw-bold text-danger">Achievement</h5></Accordion.Header>
                             <Accordion.Body>
-                                Aenean facilisis sodales est neciMorbi vitapurus on Est facilisisro convallis commodo velante, tiam ltricies lputate.Aenean facilisis sodales est neciMorbi vitapurus on Est facilisisro convallis commodo velante, tiam ltricies lputate.
+                                An efficient health care system can contribute to a significant part of a country's economy, development, and industrialization. Health care is conventionally regarded as an important determinant in promoting the general physical and mental health and well-being of people around the world.
                             </Accordion.Body>
                         </Accordion.Item>
                     </Accordion>
