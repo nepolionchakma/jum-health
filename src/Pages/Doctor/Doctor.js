@@ -28,7 +28,7 @@ const Doctor = (props) => {
                 </div>
                 <div className="p-3">
                     <h2>{name}</h2>
-                    <h6>{category}</h6>
+                    <h6>"{category}"</h6>
                     <p>{details}</p>
                     <FontAwesomeIcon className="text-warning" icon={faStar} />
                     <FontAwesomeIcon className="text-warning" icon={faStar} />

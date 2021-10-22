@@ -24,13 +24,13 @@ const AboutUs = () => {
                         <Accordion.Item eventKey="1">
                             <Accordion.Header><h5 className="fw-bold text-danger">Mission</h5></Accordion.Header>
                             <Accordion.Body>
-                                JUM Health care is delivered by health professionals and allied health fields. Medicine, dentistry, pharmacy, midwifery, nursing, optometry, audiology, psychology, occupational therapy, physical therapy, athletic training, and other health professions are all part of health care. It includes work done in providing primary care, secondary care, and tertiary care, as well as in public health.
+                                JUM Health care is delivered by health professionals and allied health fields.Medicine,audiology,psychology,occupational,physical therapy and other health professions are all part of health care.It includes work done as well as in public health.
                             </Accordion.Body>
                         </Accordion.Item>
                         <Accordion.Item eventKey="2">
                             <Accordion.Header><h5 className="fw-bold text-danger">Achievement</h5></Accordion.Header>
                             <Accordion.Body>
-                                An efficient health care system can contribute to a significant part of a country's economy, development, and industrialization. Health care is conventionally regarded as an important determinant in promoting the general physical and mental health and well-being of people around the world.
+                                An efficient health care system can contribute to a significant part of a country's economy, development, and industrialization. Health care is conventionally regarded as an important general physical and mental health and well-being of people around the world.
                             </Accordion.Body>
                         </Accordion.Item>
                     </Accordion>
