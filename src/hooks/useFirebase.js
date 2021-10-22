@@ -1,5 +1,3 @@
-
-
 import { getAuth, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, GithubAuthProvider, signOut, onAuthStateChanged, sendEmailVerification, sendPasswordResetEmail, updateProfile } from "firebase/auth";
 import initializeAuthentication from '../Firebase/firebase.initialize';
 import { useEffect, useState } from 'react';
@@ -14,12 +12,18 @@ const useFirebase = () => {
     const [error, setError] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [emailError, setEmailError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
     const [success, setSuccess] = useState('');
     const [isLogIn, setLogin] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
+    // provider
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
 
+
+    // Sign Up Email,Password
     const handleEmail = e => {
         setEmail(e.target.value);
         console.log(e.target.value);
@@ -35,6 +39,18 @@ const useFirebase = () => {
     const toggleLogIn = e => {
         setLogin(e.target.checked);
     }
+
+    // clear input field
+    const clearInput = () => {
+        setEmail("");
+        setPassword("");
+    }
+    const clearError = () => {
+        setEmailError("");
+        setPasswordError("");
+    }
+
+    // confirm SignUp
     const handleSignUp = e => {
         e.preventDefault();
         if (password.length < 6) {
@@ -50,7 +66,10 @@ const useFirebase = () => {
 
 
     }
+
+    // login
     const logIn = (email, password) => {
+        clearError();
         signInWithEmailAndPassword(auth, email, password)
             .then(result => {
                 setUser(result.user);
@@ -60,10 +79,13 @@ const useFirebase = () => {
                 setError(error.message)
             })
     }
+
+    // create new user
     const createNewUser = (email, password) => {
+        clearError();
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
-
+                setUser(result.user);
                 setSuccess('Check Mail for Verify');
                 setError('');
                 verifyEmail();
@@ -73,6 +95,8 @@ const useFirebase = () => {
                 setError(error.message)
             })
     }
+
+    // user setup
     const setUserName = () => {
         updateProfile(auth.currentUser, { displayName: name })
             .then(result => { })
@@ -88,7 +112,9 @@ const useFirebase = () => {
             .then(result => { })
     }
 
+    // google log in
     const handleGoogleSignIn = () => {
+        setIsLoading(true);
         signInWithPopup(auth, googleProvider)
             .then(result => {
                 const { displayName, email, photoURL } = result.user;
@@ -99,12 +125,14 @@ const useFirebase = () => {
 
                 };
                 setUser(loggedInUser);
-            }).catch(error => {
+            })
+            .catch(error => {
                 setError(error.message);
             })
+            .finally(() => setIsLoading(false));
     };
 
-
+    // github login
     const handleGithubSignIn = () => {
 
         signInWithPopup(auth, githubProvider)
@@ -117,31 +145,35 @@ const useFirebase = () => {
 
                 };
                 setUser(loggedInUser);
-            }).catch(error => {
+            })
+            .catch(error => {
                 setError(error.message);
             })
     };
 
-
+    // signout
     const handleSignOut = () => {
+        setIsLoading(true);
         signOut(auth)
-            .then(() => {
-                setUser({});
-            })
+            .then(() => { })
+            .finally(() => setIsLoading(false));
     };
     useEffect(() => {
         const unsubscribed = onAuthStateChanged(auth, user => {
             if (user) {
+                clearInput();
                 setUser(user);
             }
             else {
-                setUser({})
+                setUser({});
             }
+            setIsLoading(false);
         });
         return () => unsubscribed;
     }, []);
 
 
+    // all fake data
     const [services, setService] = useState([]);
     useEffect(() => {
         fetch("./fakeservicesdata.json")
@@ -180,7 +212,9 @@ const useFirebase = () => {
         isLogIn,
         toggleLogIn,
         forgetPassword,
-        blogs
+        blogs,
+        emailError,
+        passwordError
     }
 
 }

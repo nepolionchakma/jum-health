@@ -10,8 +10,8 @@ const AboutUs = () => {
                     <h5 className="fs-4 text-danger">About Us</h5>
                     <h2 className="fs-1 fw-bold py-4">We Are The Best To Take Care Of You</h2>
                 </div>
-                <div className="col-lg-4 mx-4">
-                    <img className="p-2" src={about} alt="" />
+                <div className="col-lg-4 py-3 mx-4">
+                    <img src={about} alt="" />
                 </div>
                 <div className="col-lg-4 mx-4 p-4">
                     <Accordion defaultActiveKey="" className="border border-danger">

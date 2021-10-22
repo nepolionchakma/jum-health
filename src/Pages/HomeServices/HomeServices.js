@@ -17,7 +17,7 @@ const HomeServices = () => {
                     </div>
                 </div> :
                 <div className="services-container row p-5 m-0">
-                    <h2 className="fw-bold">Our Services</h2>
+                    <h2 className="fs-1 fw-bold py-4">Our Services</h2>
                     {/* Map */}
 
                     {

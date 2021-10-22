@@ -1,8 +1,9 @@
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import useAuth from '../../hooks/useAuth';
 
 const SignUp = () => {
-
+    //  distracturing
     const {
         error,
         nameChange,
@@ -11,7 +12,7 @@ const SignUp = () => {
         handleGoogleSignIn,
         handleGithubSignIn,
         handleSignUp,
-        success, isLogIn, toggleLogIn, forgetPassword } = useAuth();
+        success, isLogIn, toggleLogIn, forgetPassword, emailError, passwordError } = useAuth();
 
 
 
@@ -19,7 +20,7 @@ const SignUp = () => {
         <div className="py-5">
             <br />
             <div>{success}</div>
-            <div className="col-lg-4 mx-auto">
+            <div className="col-lg-4 mx-auto p-3">
                 <form onSubmit={handleSignUp}>
                     <h3>Please {isLogIn ? "Login" : 'Sign Up'}</h3>
                     {!isLogIn && <div className="row mb-3">
@@ -28,6 +29,11 @@ const SignUp = () => {
                             <input onBlur={nameChange} type="text" placeholder="Your Name" className="form-control" id="name" />
                         </div>
                     </div>}
+                    {
+                        isLogIn ? <div className="row py-4 mt-3"> </div> : ""
+
+
+                    }
                     <div className="row mb-3">
                         <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Email</label>
                         <div className="col-sm-10">
@@ -45,27 +51,27 @@ const SignUp = () => {
                             <div className="form-check">
                                 <input onClick={toggleLogIn} className="form-check-input" type="checkbox" id="gridCheck1" />
                                 <label className="form-check-label d-flex justify-content-start" htmlFor="gridCheck1">
-                                    {isLogIn ? "New User?" : "Login"}
+                                    {isLogIn ? "Don't Have Account New User?" : "Already Account ? Login"}
                                 </label>
                             </div>
                         </div>
                     </div>
                     <button type="submit" className="btn btn-primary">{isLogIn ? "Login" : "Sign Up"}</button>
                 </form>
-            </div>
+            </div >
             <br />
 
-            {!isLogIn || <div className="text-danger " onClick={forgetPassword}>Forget Password?</div>}
+            <div className="text-danger " onClick={forgetPassword}>Forget Password?</div>
             <br />
-            <div className="text-danger fw-bold">{error}</div>
+            <div className="text-danger fw-bold">{error}{emailError}{passwordError}</div>
             <hr />
             <div>
                 <div>
-                    <button onClick={handleGoogleSignIn} className="btn btn-danger">Google</button>
-                    <button onClick={handleGithubSignIn} className="btn btn-danger ms-3">Github</button>
+                    <button onClick={handleGoogleSignIn} className="btn btn-danger"> <FontAwesomeIcon className="text-white fs-5" icon={faGoogle} /> Google</button>
+                    <button onClick={handleGithubSignIn} className="btn btn-danger ms-3"> <FontAwesomeIcon className="text-white fs-5" icon={faGithub} /> Github</button>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

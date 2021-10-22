@@ -1,0 +1,27 @@
+.service-container-in{
+    border-radius: 5px;
+    transition: .6s;
+}
+.service-container-in:hover {
+    transition: .6s;
+    color: #DC3545;
+    box-shadow:  0 .5rem 1rem #dc354691!important;
+    border-radius: 5px;
+}
+.service-container-in img{
+    border-Radius: 30%;
+}
+.service-container-in:hover img{
+    box-shadow:  0 .5rem 1rem #dc35468a!important;
+    transition: .6s;
+    
+    border-Radius: 50%;
+}
+.service-container-in:hover button {
+    margin-left: 20px;
+    transition: .4s;
+}
+.service-container-in:hover .fws {
+    margin: 0 2px;
+    transition: .6s;
+}

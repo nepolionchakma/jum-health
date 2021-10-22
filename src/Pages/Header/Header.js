@@ -14,6 +14,9 @@ const Header = () => {
 
     // destructuring
     const { user, handleSignOut } = useAuth();
+    console.log(user);
+
+    // const userName = user.name.slice(0, 1);
 
     return (
 
@@ -21,7 +24,7 @@ const Header = () => {
 
             <Navbar expand="lg" bg="dark" variant="dark" sticky="top">
                 <Container className="header-container py-2">
-                    <Navbar.Brand className=""><Link to="/home" className="fs-2 text-danger text-uppercase"><FontAwesomeIcon className="fs-1" icon={faHeartbeat} /> <span className="fw-bold ">Jum </span>HealthCare</Link></Navbar.Brand>
+                    <Navbar.Brand className=""><Link to="/" className="fs-2 text-danger text-uppercase"><FontAwesomeIcon className="fs-1" icon={faHeartbeat} /> <span className="fw-bold ">Jum </span>HealthCare</Link></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mx-auto">
@@ -39,7 +42,7 @@ const Header = () => {
                                     <Link className="px-1 jum-text" to="/signup">Signup</Link>
                                 </div> :
                                 <div>
-                                    <span className="text-white">Welcome,{user.name}</span>
+                                    <span className="text-white">Hi,{user.name}</span>
                                     <img
                                         style={{
                                             width: '30px',

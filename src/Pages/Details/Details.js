@@ -3,6 +3,8 @@
 import { useParams } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import "./Details.css"
+
+
 const Details = () => {
 
     const { serviceId } = useParams();

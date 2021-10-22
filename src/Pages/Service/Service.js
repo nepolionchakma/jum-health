@@ -11,7 +11,7 @@ const Service = (props) => {
         <div className="service-container p-0 col-lg-4 col-md-6 col-sm-12">
             <div className="p-4 m-3 shadow rounded service-in-container">
                 <div>
-                    <img className="bg-danger p-3 rounded" src={img} alt="" />
+                    <img className="p-3" src={img} alt="" />
                 </div>
                 <div className="p-3">
                     <h2>{name}</h2>

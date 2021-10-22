@@ -1,8 +1,13 @@
 import React from 'react';
 // get our font awesome imports
-import { faPhoneVolume, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faPhoneVolume, faStar, faStarHalfAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebook, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import "./Doctor.css";
+
+
+
+
 const Doctor = (props) => {
 
     // distraction service
@@ -11,12 +16,11 @@ const Doctor = (props) => {
     return (
         <div className="service-container p-0 col-lg-4 col-md-6 col-sm-12">
 
-            <div className="p-4 m-3 shadow rounded bg-white">
+            <div className="p-4 m-3 service-container-in shadow bg-white">
                 <div>
                     <img
                         style={{
                             width: '100px',
-                            borderRadius: '50%',
                             margin: '0px 10px',
                             boxShadow: 'rgb(255 0 0 / 15%) 0px 0.5rem 1rem'
                         }}
@@ -30,11 +34,14 @@ const Doctor = (props) => {
                     <FontAwesomeIcon className="text-warning" icon={faStar} />
                     <FontAwesomeIcon className="text-warning" icon={faStar} />
                     <FontAwesomeIcon className="text-warning" icon={faStar} />
+                    <FontAwesomeIcon className="text-warning" icon={faStarHalfAlt} />
                     <hr />
                     <div>
-                        <FontAwesomeIcon className="text-danger fs-3" icon={faFacebook} />
-                        <FontAwesomeIcon className="text-danger mx-4 fs-3" icon={faTwitter} />
-                        <FontAwesomeIcon className="text-danger fs-3" icon={faPhoneVolume} />
+                        <FontAwesomeIcon className="text-danger fws fs-3 " icon={faLinkedin} />
+                        <FontAwesomeIcon className="text-danger fws fs-3 mx-4 " icon={faFacebook} />
+                        <FontAwesomeIcon className="text-danger fws fs-3" icon={faInstagram} />
+                        <FontAwesomeIcon className="text-danger fws fs-3 mx-4 " icon={faTwitter} />
+                        <FontAwesomeIcon className="text-danger fws fs-3" icon={faPhoneVolume} />
                     </div>
                 </div>
             </div>

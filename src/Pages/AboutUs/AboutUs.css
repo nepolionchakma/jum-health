@@ -1,6 +1,10 @@
 .about-us-container {
     background-color: rgba(255, 99, 71, 0.192);
 }
+.about-us-container button:hover {
+    background-color:rgba(255, 99, 71, 0.192);
+    color: white;
+}
 .about-us-container img {
     width: 100%;
     border-radius: 60% 10% 70% 60%/170% 80% 32% 40%;

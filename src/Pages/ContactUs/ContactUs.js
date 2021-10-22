@@ -3,9 +3,9 @@ import "./ContactUs.css"
 
 const ContactUs = () => {
     return (
-        <div className="contact-container row mx-auto py-5 mx-auto">
+        <div className="contact-container row m-0 py-5 mx-auto">
             <div className="col-3 col-md-1 col-sm-1"></div>
-            <div className="col-3 col-md-5 col-sm-5 text-white mt-5">
+            <div className="col-3 col-md-5 col-sm-12 col-12 text-white mt-5">
                 <h4>Follow Us On</h4>
                 <p>
                     <a className="px-3" href="/home"><i className="fab fa-twitter"> </i></a>
@@ -18,15 +18,33 @@ const ContactUs = () => {
                     <p>20 Hatazari, Chittagong, Bangladesh</p>
                 </address>
             </div>
-            <div className="col-3 col-md-5 col-sm-5">
-                <h3 className="fw-bold text-success ps-5">Contact Us</h3>
-                <ul className="ps-4">
-                    <li><input type="text" placeholder="Name" /></li>
-                    <li><input type="email" name="" id="" placeholder="Email" /></li>
-                    <li><input type="number" name="" id="" placeholder="Number" /></li>
-                    <li><textarea name="" id="" cols="30" rows="2" placeholder="Message"></textarea></li>
-                    <li><button className="btn btn-success">Send</button></li>
-                </ul>
+            <div className="col-3 col-md-5 col-sm-12 col-12 py-3">
+                <h3 className="fw-bold text-success p-5 text-danger">Contact Us</h3>
+                <div className="row mb-3">
+                    <label htmlFor="inputEmail3" className="col-sm-2 col-form-label text-white fw-bold">Name</label>
+                    <div className="col-sm-10">
+                        <input placeholder="Email" type="text" className="form-control" id="name" />
+                    </div>
+                </div>
+                <div className="row mb-3">
+                    <label htmlFor="inputPassword3" className="col-sm-2 col-form-label text-white fw-bold">Email</label>
+                    <div className="col-sm-10">
+                        <input placeholder="Password" type="email" className="form-control" id="" />
+                    </div>
+                </div>
+                <div className="row mb-3">
+                    <label htmlFor="inputPassword3" className="col-sm-2 col-form-label text-white fw-bold">Phone</label>
+                    <div className="col-sm-10">
+                        <input placeholder="number" type="number" className="form-control" id="" />
+                    </div>
+                </div>
+                <div className="row mb-3">
+                    <label htmlFor="inputPassword3" className="col-sm-2 col-form-label text-white fw-bold">Message</label>
+                    <div className="col-sm-10">
+                        <textarea cols="30" rows="2" placeholder="Message" type="text" className="form-control" id="" />
+                    </div>
+                </div>
+                <button className="btn btn-danger py-2 px-4" type="submit">Send</button>
             </div>
             <div className="col-3 col-md-1"></div>
         </div >

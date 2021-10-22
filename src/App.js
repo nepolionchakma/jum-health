@@ -40,9 +40,9 @@ function App() {
             <PrivateRoute path="/services">
               <Services></Services>
             </PrivateRoute>
-            <Route path="/details/:serviceId">
+            <PrivateRoute path="/details/:serviceId">
               <Details></Details>
-            </Route>
+            </PrivateRoute>
             <Route path="/aboutus">
               <AboutUs></AboutUs>
             </Route>

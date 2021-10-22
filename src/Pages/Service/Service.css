@@ -1,3 +1,19 @@
-img{
+.service-in-container img{
     width: 100px;
+    border-radius: 50%;
+    background: #DC3545;
+}
+.service-in-container:hover {
+    background: rgba(196, 189, 188, 0.192);
+    transition: .6s;
+    color: #DC3545;
+}
+.service-in-container:hover button {
+    margin-left: 20px;
+    transition: .4s;
+}
+.service-in-container:hover img {
+    border-radius: 30%;
+    background: #dc3546de;
+    transition: .4s;
 }
