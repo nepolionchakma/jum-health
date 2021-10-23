@@ -1,69 +1,60 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import useAuth from '../../hooks/useAuth';
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
     //  distracturing
     const {
-        error,
         nameChange,
         handleEmail,
         handlePassword,
         handleGoogleSignIn,
         handleGithubSignIn,
         handleSignUp,
-        success, isLogIn, toggleLogIn, forgetPassword, emailError, passwordError } = useAuth();
+        success, forgetPassword, errorpassempty,
+        errorpass,
+        errorEmail, } = useAuth();
 
 
 
     return (
         <div className="py-5">
             <br />
-            <div>{success}</div>
+            <div className="text-danger fw-bold">{success}{errorpassempty}{errorpass}{errorEmail}</div>
             <div className="col-lg-4 mx-auto p-3">
                 <form onSubmit={handleSignUp}>
-                    <h3>Please {isLogIn ? "Login" : 'Sign Up'}</h3>
-                    {!isLogIn && <div className="row mb-3">
+                    <h3>Please Sign Up</h3>
+                    <div className="row mb-3">
                         <label htmlFor="name" className="col-sm-2 col-form-label">Name</label>
                         <div className="col-sm-10">
-                            <input onBlur={nameChange} type="text" placeholder="Your Name" className="form-control" id="name" />
+                            <input onBlur={nameChange} required type="text" placeholder="Your Name" className="form-control" id="name" />
                         </div>
-                    </div>}
-                    {
-                        isLogIn ? <div className="row py-4 mt-3"> </div> : ""
+                    </div>
 
-
-                    }
                     <div className="row mb-3">
                         <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Email</label>
                         <div className="col-sm-10">
-                            <input onBlur={handleEmail} placeholder="Email" type="email" className="form-control" id="inputEmail3" />
+                            <input onBlur={handleEmail} required placeholder="Email" type="email" className="form-control" id="inputEmail3" />
                         </div>
                     </div>
                     <div className="row mb-3">
                         <label htmlFor="inputPassword3" className="col-sm-2 col-form-label">Password</label>
                         <div className="col-sm-10">
-                            <input onBlur={handlePassword} placeholder="Password" type="password" className="form-control" id="inputPassword3" />
+                            <input onBlur={handlePassword} required placeholder="Password" type="password" className="form-control" id="inputPassword3" />
                         </div>
                     </div>
-                    <div className="row mb-3">
-                        <div className="col-sm-10 offset-sm-2">
-                            <div className="form-check">
-                                <input onClick={toggleLogIn} className="form-check-input" type="checkbox" id="gridCheck1" />
-                                <label className="form-check-label d-flex justify-content-start" htmlFor="gridCheck1">
-                                    {isLogIn ? "Don't Have Account New User?" : "Already Account ? Login"}
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <button type="submit" className="btn btn-primary">{isLogIn ? "Login" : "Sign Up"}</button>
+
+                    <button type="submit" className="btn btn-primary fw-bold m-2">Sign Up</button>
+                    <Link to="/login" className="btn btn-primary fw-bold m-2">Log-In</Link>
+                    <button className="btn btn-danger fw-bold m-2" type="reset">Reset</button>
                 </form>
             </div >
             <br />
 
             <div className="text-danger " onClick={forgetPassword}>Forget Password?</div>
             <br />
-            <div className="text-danger fw-bold">{error}{emailError}{passwordError}</div>
+
             <hr />
             <div>
                 <div>

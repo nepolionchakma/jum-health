@@ -35,20 +35,20 @@ const Header = () => {
                             <Nav.Link as={HashLink} to="/contactus">Contact</Nav.Link>
                         </Nav>
                         <Nav>
-                            {!user?.name ?
+                            {!user?.displayName ?
                                 <div>
                                     <Link className="px-1 jum-text" to="/login">Login</Link>
                                     <Link className="px-1 jum-text" to="/signup">Signup</Link>
                                 </div> :
                                 <div>
-                                    <span className="text-white">Hi,{user.name}</span>
+                                    <span className="text-white">Hi,{user.displayName}</span>
                                     <img
                                         style={{
                                             width: '30px',
                                             borderRadius: '50%',
                                             margin: '0px 5px'
                                         }}
-                                        src={user.photo} alt="" />
+                                        src={user.photoURL} alt="" />
                                     <button onClick={handleSignOut} className="btn btn-danger p-1">SignOut</button>
                                 </div>
                             }

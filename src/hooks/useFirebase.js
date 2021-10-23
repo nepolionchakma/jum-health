@@ -9,14 +9,19 @@ const useFirebase = () => {
     const auth = getAuth();
     const [name, setName] = useState();
     const [user, setUser] = useState({});
-    const [error, setError] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [emailError, setEmailError] = useState('');
-    const [passwordError, setPasswordError] = useState('');
-    const [success, setSuccess] = useState('');
+    const [error, setError] = useState();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [emailError, setEmailError] = useState();
+    const [passwordError, setPasswordError] = useState();
+    const [success, setSuccess] = useState();
+    const [loginSuccess, setSuccessLogin] = useState();
     const [isLogIn, setLogin] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
+    const [errorpassempty, setErrorpassempty] = useState("");
+    const [errorpass, setErrorpass] = useState("");
+    const [errorEmail, setErrorEmail] = useState("");
+    // const[]=useState();
 
     // provider
     const googleProvider = new GoogleAuthProvider();
@@ -40,40 +45,54 @@ const useFirebase = () => {
         setLogin(e.target.checked);
     }
 
-    // clear input field
-    const clearInput = () => {
-        setEmail("");
-        setPassword("");
-    }
+
     const clearError = () => {
         setEmailError("");
         setPasswordError("");
     }
+    // successLogin
+    const successLogin = () => {
+        setSuccessLogin("Successfully LogIn.");
+    }
 
     // confirm SignUp
     const handleSignUp = e => {
+
         e.preventDefault();
-        if (password.length < 6) {
-            setError('Password at least 6 ')
+        if (email.value < 0) {
+            setErrorEmail('Set Email Please. ')
             return;
         };
-        if (isLogIn) {
-            logIn(email, password)
+        if (password.length < 6) {
+            setErrorpass('Password at least 6 ')
+            return;
+        };
+        if (password.length < 0) {
+            setErrorpassempty('Set Password please.')
+            return;
         }
+
+
         else {
-            createNewUser(email, password)
+
+            createNewUser(email, password);
+            handleLogIn("");
+            return;
+            // clearInput();
+
         }
 
 
     }
 
     // login
-    const logIn = (email, password) => {
-        clearError();
+    const handleLogIn = (email, password) => {
+        // clearError();
         signInWithEmailAndPassword(auth, email, password)
             .then(result => {
                 setUser(result.user);
-
+                // clearInput();
+                successLogin();
             })
             .catch(error => {
                 setError(error.message)
@@ -82,16 +101,18 @@ const useFirebase = () => {
 
     // create new user
     const createNewUser = (email, password) => {
-        clearError();
+        clearError("");
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
                 setUser(result.user);
-                setSuccess('Check Mail for Verify');
-                setError('');
+                // setError('');
                 verifyEmail();
+                setSuccess('Successfully sign up And Now Check Mail for Verify');
                 setUserName();
+                setUser({});
             })
             .catch(error => {
+                setError(error.code)
                 setError(error.message)
             })
     }
@@ -116,18 +137,13 @@ const useFirebase = () => {
     const handleGoogleSignIn = () => {
         setIsLoading(true);
         signInWithPopup(auth, googleProvider)
-            .then(result => {
-                const { displayName, email, photoURL } = result.user;
-                const loggedInUser = {
-                    name: displayName,
-                    email: email,
-                    photo: photoURL
-
-                };
-                setUser(loggedInUser);
-            })
-            .catch(error => {
+            .then((result) => {
+                setUser(result.user);
+                setSuccessLogin();
+            }).catch((error) => {
+                // Handle Errors here.
                 setError(error.message);
+
             })
             .finally(() => setIsLoading(false));
     };
@@ -136,17 +152,11 @@ const useFirebase = () => {
     const handleGithubSignIn = () => {
 
         signInWithPopup(auth, githubProvider)
-            .then(result => {
-                const { displayName, email, photoURL } = result.user;
-                const loggedInUser = {
-                    name: displayName,
-                    email: email,
-                    photo: photoURL,
-
-                };
-                setUser(loggedInUser);
-            })
-            .catch(error => {
+            .then((result) => {
+                setUser(result.user);
+                setSuccessLogin();
+            }).catch((error) => {
+                // Handle Errors here.
                 setError(error.message);
             })
     };
@@ -161,7 +171,7 @@ const useFirebase = () => {
     useEffect(() => {
         const unsubscribed = onAuthStateChanged(auth, user => {
             if (user) {
-                clearInput();
+                // clearInput();
                 setUser(user);
             }
             else {
@@ -213,8 +223,14 @@ const useFirebase = () => {
         toggleLogIn,
         forgetPassword,
         blogs,
+        handleLogIn,
+        loginSuccess,
         emailError,
-        passwordError
+        passwordError,
+        isLoading,
+        errorpassempty,
+        errorpass,
+        errorEmail,
     }
 
 }
