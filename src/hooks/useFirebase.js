@@ -9,6 +9,7 @@ const useFirebase = () => {
     const auth = getAuth();
     const [name, setName] = useState();
     const [user, setUser] = useState({});
+    // console.log(user);
     const [error, setError] = useState();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -31,11 +32,11 @@ const useFirebase = () => {
     // Sign Up Email,Password
     const handleEmail = e => {
         setEmail(e.target.value);
-        console.log(e.target.value);
+        // console.log(e.target.value);
     }
     const handlePassword = e => {
         setPassword(e.target.value);
-        console.log(e.target.value);
+        // console.log(e.target.value);
     }
     const nameChange = e => {
         setName(e.target.value);
@@ -76,7 +77,6 @@ const useFirebase = () => {
         else {
 
             createNewUser(email, password);
-            handleLogIn("");
             return;
             // clearInput();
 
@@ -88,14 +88,16 @@ const useFirebase = () => {
     // login
     const handleLogIn = (email, password) => {
         // clearError();
-        signInWithEmailAndPassword(auth, email, password)
+        return signInWithEmailAndPassword(auth, email, password)
             .then(result => {
+
                 setUser(result.user);
-                // clearInput();
-                successLogin();
+                setSuccessLogin();
             })
-            .catch(error => {
-                setError(error.message)
+            .catch((error) => {
+                // Handle Errors here.
+                setError(error.message);
+
             })
     }
 
@@ -109,7 +111,6 @@ const useFirebase = () => {
                 verifyEmail();
                 setSuccess('Successfully sign up And Now Check Mail for Verify');
                 setUserName();
-                setUser({});
             })
             .catch(error => {
                 setError(error.code)
@@ -136,29 +137,15 @@ const useFirebase = () => {
     // google log in
     const handleGoogleSignIn = () => {
         setIsLoading(true);
-        signInWithPopup(auth, googleProvider)
-            .then((result) => {
-                setUser(result.user);
-                setSuccessLogin();
-            }).catch((error) => {
-                // Handle Errors here.
-                setError(error.message);
+        return signInWithPopup(auth, googleProvider)
 
-            })
-            .finally(() => setIsLoading(false));
     };
 
     // github login
     const handleGithubSignIn = () => {
 
-        signInWithPopup(auth, githubProvider)
-            .then((result) => {
-                setUser(result.user);
-                setSuccessLogin();
-            }).catch((error) => {
-                // Handle Errors here.
-                setError(error.message);
-            })
+        return signInWithPopup(auth, githubProvider)
+
     };
 
     // signout
@@ -166,7 +153,6 @@ const useFirebase = () => {
         setIsLoading(true);
         signOut(auth)
             .then(() => { })
-            .finally(() => setIsLoading(false));
     };
     useEffect(() => {
         const unsubscribed = onAuthStateChanged(auth, user => {
@@ -230,7 +216,7 @@ const useFirebase = () => {
         isLoading,
         errorpassempty,
         errorpass,
-        errorEmail,
+        errorEmail, setSuccessLogin, setIsLoading, setError, setUser, successLogin
     }
 
 }

@@ -1,23 +1,78 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import useAuth from '../../hooks/useAuth';
-import { Link } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 // import useFirebase from '../../hooks/useFirebase';
+
 
 
 const Login = () => {
     // destructuring
     const {
-        handleGoogleSignIn, handleGithubSignIn, handleLogin,
-        handleEmail, handlePassword, forgetPassword, emailError, passwordError, loginSuccess
+        handleGoogleSignIn, handleGithubSignIn, handleLogIn,
+        handleEmail, handlePassword, forgetPassword, emailError, passwordError, loginSuccess, setUser, setSuccessLogin, setIsLoading, setError
     } = useAuth();
+
+    const location = useLocation();
+    const history = useHistory();
+    const redirect_url = location.state?.from || "/";
+
+    // // Email & Password Log in & Redirect
+    // const epLogIn = () => {
+    //     handleLogIn()
+    //         .then(result => {
+
+    //             setUser(result.user);
+    //             setSuccessLogin();
+    //             history.push(redirect_url);
+    //         })
+    //         .catch((error) => {
+    //             // Handle Errors here.
+    //             setError(error.message);
+
+    //         })
+    // }
+
+    // Google Log in & Redirect
+    const googleLogIn = () => {
+        handleGoogleSignIn()
+            .then(result => {
+
+                setUser(result.user);
+                setSuccessLogin();
+                history.push(redirect_url);
+            })
+            .catch((error) => {
+                // Handle Errors here.
+                setError(error.message);
+
+            })
+            .finally(() => setIsLoading(false));
+    }
+    // Github Log in & Redirect
+    const githubLogIn = () => {
+        handleGithubSignIn()
+            .then(result => {
+
+                setUser(result.user);
+                setSuccessLogin();
+                history.push(redirect_url);
+            })
+            .catch((error) => {
+                // Handle Errors here.
+                setError(error.message);
+
+            })
+            .finally(() => setIsLoading(false));
+    }
+
 
     return (
         <div className="py-5">
             <br />
             <div className="col-lg-4 mx-auto p-3">
                 <div className="text-danger fw-bold">{loginSuccess}{emailError}{passwordError}</div>
-                <form onSubmit={handleLogin}>
+                <form onSubmit={handleLogIn}>
                     <h3 className="py-4">Please Log-In</h3>
 
                     <div className="row mb-3">
@@ -45,8 +100,8 @@ const Login = () => {
             <br />
             <div>
                 <div>
-                    <button onClick={handleGoogleSignIn} className="btn btn-danger"> <FontAwesomeIcon className="text-white fs-5" icon={faGoogle} /> Google</button>
-                    <button onClick={handleGithubSignIn} className="btn btn-danger ms-3"> <FontAwesomeIcon className="text-white fs-5" icon={faGithub} /> Github</button>
+                    <button onClick={googleLogIn} className="btn btn-danger"> <FontAwesomeIcon className="text-white fs-5" icon={faGoogle} /> Google</button>
+                    <button onClick={githubLogIn} className="btn btn-danger ms-3"> <FontAwesomeIcon className="text-white fs-5" icon={faGithub} /> Github</button>
                 </div>
             </div>
         </div>

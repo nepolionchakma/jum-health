@@ -1,6 +1,6 @@
 import React from 'react';
 import { Spinner } from 'react-bootstrap';
-import { Redirect, Route } from 'react-router';
+import { Redirect, Route } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
 
 const PrivateRoute = ({ children, ...rest }) => {
@@ -12,13 +12,12 @@ const PrivateRoute = ({ children, ...rest }) => {
     return (
         <Route
             {...rest}
-            render={({ location }) => user.name ? children
-                : <Redirect
-                    to={{
-                        pathname: "/login",
-                        state: { from: location }
-                    }}
-                ></Redirect>}
+            render={({ location }) => user.displayName ? children : <Redirect
+                to={{
+                    pathname: "/login",
+                    state: { from: location }
+                }}
+            ></Redirect>}
         >
 
         </Route>
