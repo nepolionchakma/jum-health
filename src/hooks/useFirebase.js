@@ -80,7 +80,7 @@ const useFirebase = () => {
                 setError('');
                 setUserName(displayName);
                 verifyEmail();
-                setSuccess('Successfully sign up And Login And Now Check Mail for Verify');
+                setSuccess('Successfully sign up And Now Check Mail for Verify');
             })
             .catch(error => {
                 setError(error.code)
