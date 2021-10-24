@@ -11,7 +11,6 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
-    console.log(user);
     const [error, setError] = useState("");
     const [emailError, setEmailError] = useState();
     const [passwordError, setPasswordError] = useState();
@@ -30,15 +29,12 @@ const useFirebase = () => {
     //provide Sign Up Email,Password,name
     const handleEmail = e => {
         setEmail(e.target.value);
-        console.log(e.target.value)
     }
     const handlePassword = e => {
         setPassword(e.target.value);
-        console.log(e.target.value)
     }
     const nameChange = e => {
         setName(e.target.value);
-        console.log(e.target.value)
     }
 
 
@@ -103,7 +99,6 @@ const useFirebase = () => {
     }
     // login
     const handleLogIn = (email, password) => {
-        console.log(signInWithEmailAndPassword)
         return signInWithEmailAndPassword(auth, email, password)
             .then(result => {
 

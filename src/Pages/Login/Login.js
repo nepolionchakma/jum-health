@@ -10,9 +10,8 @@ const Login = () => {
     // destructuring
     const {
         handleGoogleSignIn, handleGithubSignIn, handleLogIn,
-        handleEmail, handlePassword, forgetPassword, emailError, passwordError, loginSuccess, setUser, setSuccessLogin, setIsLoading, setError, user
+        handleEmail, handlePassword, forgetPassword, emailError, passwordError, loginSuccess, setUser, setSuccessLogin, setError
     } = useAuth();
-    console.log(user)
     const location = useLocation();
     const history = useHistory();
     const redirect_url = location.state?.from || "/";
@@ -31,7 +30,6 @@ const Login = () => {
                 setError(error.message);
 
             })
-            .finally(() => setIsLoading(false));
     }
     // Github Log in & Redirect
     const githubLogIn = () => {
@@ -47,7 +45,6 @@ const Login = () => {
                 setError(error.message);
 
             })
-            .finally(() => setIsLoading(false));
     }
 
 
