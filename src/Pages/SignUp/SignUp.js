@@ -46,13 +46,13 @@ const SignUp = () => {
                     </div>
 
                     <button type="submit" className="btn btn-primary fw-bold m-2">Sign Up</button>
-                    <Link to="/login" className="btn btn-primary fw-bold m-2">Log-In</Link>
-                    <button className="btn btn-danger fw-bold m-2" type="reset">Reset</button>
                 </form>
+                <Link to="/login" className="btn btn-primary fw-bold m-2">Log-In</Link>
+                <button className="btn btn-danger fw-bold m-2" type="reset">Reset</button>
             </div >
             <br />
 
-            <div className="text-danger " onClick={forgetPassword}>Forget Password?</div>
+            <Link className="text-danger " to="" onClick={forgetPassword}>Forget Password?</Link>
             <br />
 
             <hr />

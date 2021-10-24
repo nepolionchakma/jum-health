@@ -10,28 +10,12 @@ const Login = () => {
     // destructuring
     const {
         handleGoogleSignIn, handleGithubSignIn, handleLogIn,
-        handleEmail, handlePassword, forgetPassword, emailError, passwordError, loginSuccess, setUser, setSuccessLogin, setIsLoading, setError
+        handleEmail, handlePassword, forgetPassword, emailError, passwordError, loginSuccess, setUser, setSuccessLogin, setIsLoading, setError, user
     } = useAuth();
-
+    console.log(user)
     const location = useLocation();
     const history = useHistory();
     const redirect_url = location.state?.from || "/";
-
-    // // Email & Password Log in & Redirect
-    // const epLogIn = () => {
-    //     handleLogIn()
-    //         .then(result => {
-
-    //             setUser(result.user);
-    //             setSuccessLogin();
-    //             history.push(redirect_url);
-    //         })
-    //         .catch((error) => {
-    //             // Handle Errors here.
-    //             setError(error.message);
-
-    //         })
-    // }
 
     // Google Log in & Redirect
     const googleLogIn = () => {
@@ -89,8 +73,8 @@ const Login = () => {
                     </div>
 
                     <button type="submit" className="btn btn-primary fw-bold m-2">Log-In</button>
-                    <Link to="/signup" className="btn btn-primary fw-bold m-2">Sign Up</Link>
                 </form>
+                <Link to="/signup" className="btn btn-primary fw-bold m-2">Sign Up</Link>
             </div>
             <br />
             <div className="text-danger " onClick={forgetPassword}>Forget Password?</div>

@@ -9,19 +9,17 @@ const useFirebase = () => {
     const auth = getAuth();
     const [name, setName] = useState();
     const [user, setUser] = useState({});
-    // console.log(user);
-    const [error, setError] = useState();
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+    console.log(user);
+    const [error, setError] = useState("");
     const [emailError, setEmailError] = useState();
     const [passwordError, setPasswordError] = useState();
     const [success, setSuccess] = useState();
     const [loginSuccess, setSuccessLogin] = useState();
-    const [isLogIn, setLogin] = useState(false);
-    const [isLoading, setIsLoading] = useState(true);
-    const [errorpassempty, setErrorpassempty] = useState("");
+    // const [errorpassempty, setErrorpassempty] = useState("");
     const [errorpass, setErrorpass] = useState("");
-    const [errorEmail, setErrorEmail] = useState("");
+    // const [errorEmail, setErrorEmail] = useState("");
     // const[]=useState();
 
     // provider
@@ -29,21 +27,18 @@ const useFirebase = () => {
     const githubProvider = new GithubAuthProvider();
 
 
-    // Sign Up Email,Password
+    //provide Sign Up Email,Password,name
     const handleEmail = e => {
         setEmail(e.target.value);
-        // console.log(e.target.value);
+        console.log(e.target.value)
     }
     const handlePassword = e => {
         setPassword(e.target.value);
-        // console.log(e.target.value);
+        console.log(e.target.value)
     }
     const nameChange = e => {
         setName(e.target.value);
-    }
-
-    const toggleLogIn = e => {
-        setLogin(e.target.checked);
+        console.log(e.target.value)
     }
 
 
@@ -60,57 +55,32 @@ const useFirebase = () => {
     const handleSignUp = e => {
 
         e.preventDefault();
-        if (email.value < 0) {
-            setErrorEmail('Set Email Please. ')
-            return;
-        };
         if (password.length < 6) {
-            setErrorpass('Password at least 6 ')
-            return;
-        };
-        if (password.length < 0) {
-            setErrorpassempty('Set Password please.')
-            return;
+            setErrorpass('Password at least 6 ');
+
+            setSuccess("");
         }
 
 
         else {
-
             createNewUser(email, password);
-            return;
-            // clearInput();
+            setErrorpass("");
+            setSuccess("");
 
         }
 
 
     }
 
-    // login
-    const handleLogIn = (email, password) => {
-        // clearError();
-        return signInWithEmailAndPassword(auth, email, password)
-            .then(result => {
-
-                setUser(result.user);
-                setSuccessLogin();
-            })
-            .catch((error) => {
-                // Handle Errors here.
-                setError(error.message);
-
-            })
-    }
-
     // create new user
-    const createNewUser = (email, password) => {
+    const createNewUser = (email, password, displayName) => {
         clearError("");
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
-                setUser(result.user);
-                // setError('');
+                setError('');
+                setUserName(displayName);
                 verifyEmail();
-                setSuccess('Successfully sign up And Now Check Mail for Verify');
-                setUserName();
+                setSuccess('Successfully sign up And Login And Now Check Mail for Verify');
             })
             .catch(error => {
                 setError(error.code)
@@ -125,18 +95,31 @@ const useFirebase = () => {
     }
     const verifyEmail = () => {
         sendEmailVerification(auth.currentUser)
-            .then(result => {
-
-            })
+            .then(result => { })
     }
     const forgetPassword = () => {
         sendPasswordResetEmail(auth, email)
             .then(result => { })
     }
+    // login
+    const handleLogIn = (email, password) => {
+        console.log(signInWithEmailAndPassword)
+        return signInWithEmailAndPassword(auth, email, password)
+            .then(result => {
+
+                setUser(result.user);
+                setSuccessLogin();
+                clearError();
+            })
+            .catch((error) => {
+                // Handle Errors here.
+                setError(error.message);
+
+            })
+    }
 
     // google log in
     const handleGoogleSignIn = () => {
-        setIsLoading(true);
         return signInWithPopup(auth, googleProvider)
 
     };
@@ -150,7 +133,6 @@ const useFirebase = () => {
 
     // signout
     const handleSignOut = () => {
-        setIsLoading(true);
         signOut(auth)
             .then(() => { })
     };
@@ -163,7 +145,6 @@ const useFirebase = () => {
             else {
                 setUser({});
             }
-            setIsLoading(false);
         });
         return () => unsubscribed;
     }, []);
@@ -205,18 +186,18 @@ const useFirebase = () => {
         services,
         success,
         doctors,
-        isLogIn,
-        toggleLogIn,
+        // isLogIn,
+        // toggleLogIn,
         forgetPassword,
         blogs,
         handleLogIn,
         loginSuccess,
         emailError,
         passwordError,
-        isLoading,
-        errorpassempty,
+        // errorpassempty,
+        // errorEmail,
         errorpass,
-        errorEmail, setSuccessLogin, setIsLoading, setError, setUser, successLogin
+        setSuccessLogin, setError, setUser, successLogin
     }
 
 }
