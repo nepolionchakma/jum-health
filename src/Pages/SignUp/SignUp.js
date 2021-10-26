@@ -21,32 +21,35 @@ const SignUp = () => {
     return (
         <div className="py-5">
             <br />
-            <div className="text-danger fw-bold">{success}{errorpassempty}{errorpass}{errorEmail}</div>
             <div className="col-lg-4 mx-auto p-3">
+
+
                 <form onSubmit={handleSignUp}>
                     <h3>Please Sign Up</h3>
                     <div className="row mb-3">
                         <label htmlFor="name" className="col-sm-2 col-form-label">Name</label>
                         <div className="col-sm-10">
-                            <input onBlur={nameChange} required type="text" placeholder="Your Name" className="form-control" id="name" />
+                            <input onChange={nameChange} required type="text" placeholder="Your Name" className="form-control" id="name" />
                         </div>
                     </div>
 
                     <div className="row mb-3">
                         <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Email</label>
                         <div className="col-sm-10">
-                            <input onBlur={handleEmail} required placeholder="Email" type="email" className="form-control" id="inputEmail3" />
+                            <input onChange={handleEmail} required placeholder="Email" type="email" className="form-control" id="inputEmail3" />
                         </div>
                     </div>
                     <div className="row mb-3">
                         <label htmlFor="inputPassword3" className="col-sm-2 col-form-label">Password</label>
                         <div className="col-sm-10">
-                            <input onBlur={handlePassword} required placeholder="Password" type="password" className="form-control" id="inputPassword3" />
+                            <input onChange={handlePassword} required placeholder="Password" type="password" className="form-control" id="inputPassword3" />
                         </div>
                     </div>
-
-                    <button type="submit" className="btn btn-primary fw-bold m-2">Sign Up</button>
+                    <div className="text-danger fw-bold">{success}{errorpassempty}{errorpass}{errorEmail}</div>
+                    <input type="submit" className="btn btn-primary fw-bold m-2" value="Sign Up" />
                 </form>
+
+
                 <Link to="/login" className="btn btn-primary fw-bold m-2">Log-In</Link>
                 <button className="btn btn-danger fw-bold m-2" type="reset">Reset</button>
             </div >

@@ -24,7 +24,7 @@ const AboutUs = () => {
                         <Accordion.Item eventKey="1">
                             <Accordion.Header><h5 className="fw-bold text-danger">Mission</h5></Accordion.Header>
                             <Accordion.Body>
-                                JUM Health care is delivered by health professionals and allied health fields.Medicine,audiology,psychology,occupational,physical therapy and other health professions are all part of health care.It includes work done as well as in public health.
+                                JUM Health care is delivered by health professionals and allied health fields.Medicine, audiology, psychology, physical therapy and other health professions are all part of health care.It includes work done as well as in public health.
                             </Accordion.Body>
                         </Accordion.Item>
                         <Accordion.Item eventKey="2">

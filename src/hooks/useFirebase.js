@@ -7,19 +7,18 @@ initializeAuthentication();
 const useFirebase = () => {
 
     const auth = getAuth();
+
     const [name, setName] = useState();
     const [user, setUser] = useState({});
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [emailError, setEmailError] = useState();
     const [passwordError, setPasswordError] = useState();
     const [success, setSuccess] = useState();
     const [loginSuccess, setSuccessLogin] = useState();
-    // const [errorpassempty, setErrorpassempty] = useState("");
     const [errorpass, setErrorpass] = useState("");
-    // const [errorEmail, setErrorEmail] = useState("");
-    // const[]=useState();
+
 
     // provider
     const googleProvider = new GoogleAuthProvider();
@@ -37,7 +36,7 @@ const useFirebase = () => {
         setName(e.target.value);
     }
 
-
+    // clear error
     const clearError = () => {
         setEmailError("");
         setPasswordError("");
@@ -49,30 +48,25 @@ const useFirebase = () => {
 
     // confirm SignUp
     const handleSignUp = e => {
-
         e.preventDefault();
         if (password.length < 6) {
             setErrorpass('Password at least 6 ');
-
             setSuccess("");
         }
-
-
         else {
             createNewUser(email, password);
             setErrorpass("");
             setSuccess("");
-
         }
-
-
     }
+
 
     // create new user
     const createNewUser = (email, password, displayName) => {
         clearError("");
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
+                setUser(result.user);
                 setError('');
                 setUserName(displayName);
                 verifyEmail();
@@ -97,40 +91,32 @@ const useFirebase = () => {
         sendPasswordResetEmail(auth, email)
             .then(result => { })
     }
-    // login
-    const handleLogIn = (email, password) => {
+    // confirm Login
+    const handleSignIn = e => {
+        e.preventDefault();
+        return logInUser(email, password)
+    }
+    // login email and password
+    const logInUser = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password)
-            .then(result => {
-
-                setUser(result.user);
-                setSuccessLogin();
-                clearError();
-            })
-            .catch((error) => {
-                // Handle Errors here.
-                setError(error.message);
-
-            })
     }
 
     // google log in
     const handleGoogleSignIn = () => {
         return signInWithPopup(auth, googleProvider)
-
     };
 
     // github login
     const handleGithubSignIn = () => {
-
         return signInWithPopup(auth, githubProvider)
-
     };
 
-    // signout
+    // sign out
     const handleSignOut = () => {
         signOut(auth)
             .then(() => { })
     };
+    // auth Change
     useEffect(() => {
         const unsubscribed = onAuthStateChanged(auth, user => {
             if (user) {
@@ -185,13 +171,13 @@ const useFirebase = () => {
         // toggleLogIn,
         forgetPassword,
         blogs,
-        handleLogIn,
+        handleSignIn,
         loginSuccess,
         emailError,
         passwordError,
         // errorpassempty,
         // errorEmail,
-        errorpass,
+        errorpass, clearError, logInUser,
         setSuccessLogin, setError, setUser, successLogin
     }
 
